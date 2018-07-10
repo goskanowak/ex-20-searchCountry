@@ -10,13 +10,24 @@ class CountryFlagContainer extends Component {
 
   componentDidMount() {
     this.props.dispatch(getCountries());
+    this.props.dispatch(searchCountries(''));
+  }
+
+  search(event) {
+    this.props.dispatch(searchCountries
+      (event.target.value));
   }
 
   render() {
     return (
       <div>
+        <div className="search text-center">
+          <input 
+            type="text" 
+            onChange={this.search.bind(this)}/>
+        </div>
         <CountryFlagList 
-          countries={this.props.countries} />
+          countries={this.props.visibleCountries} />
       </div>
     )
   }
@@ -26,7 +37,9 @@ const mapStateToProps =
   function (store) {
     return {
       countries:
-        store.countriesReducer.countries
+        store.countriesReducer.countries,
+      visibleCountries:
+        store.countriesReducer.visibleCountries
     };
   };
 
