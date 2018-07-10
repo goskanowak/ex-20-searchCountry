@@ -18,6 +18,10 @@ class CountryFlagContainer extends Component {
       (event.target.value));
   }
 
+  deleteCountry(id) {
+    this.props.dispatch(deleteCountry(id));
+  }
+    
   render() {
     return (
       <div>
