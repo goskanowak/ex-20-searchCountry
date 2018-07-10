@@ -1,6 +1,8 @@
 import { GET_COUNTRIES, 
          GET_COUNTRY, 
-         SEARCH_COUNTRIES 
+         SEARCH_COUNTRIES ,
+         DELETE_COUNTRY,
+         SET_CONTINENT
        } from '../actions/actions-countries';
 import countriesData from '../data/countries.json';
 
@@ -42,10 +44,15 @@ const countriesReducer =
         return Object.assign({}, state, {
           countries: notDeletedCountries, 
           visibleCountries: notDeletedVisibleCountries});
-
-      default:
-        return state;
-    }
+            
+      case SET_CONTINENT:
+        const continentCountries = 
+          state.countries.filter(country => 
+            country.continent === action.name);
+        return Object.assign({}, state, {
+          visibleCountries: continentCountries});
+    }   
+    return state;
   };
 
 export default countriesReducer;
