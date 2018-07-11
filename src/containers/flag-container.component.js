@@ -31,7 +31,8 @@ class CountryFlagContainer extends Component {
             onChange={this.search.bind(this)}/>
         </div>
         <CountryFlagList 
-          countries={this.props.visibleCountries} />
+          countries={this.props.visibleCountries} 
+          deleteCountry={this.deleteCountry.bind(this)} />
       </div>
     )
   }

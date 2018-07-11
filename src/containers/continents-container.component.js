@@ -25,8 +25,8 @@ class ContinentsContainer extends Component {
     return (
       <div>
         <select onChange={e => this.chooseContinent(e)}>
-          <option value="Europa">Europa</option>
-          <option value="Afryka">Afryka</option>
+          <option value="Europa">Europe</option>
+          <option value="Afryka">Africa</option>
         </select>
         <CountryFlagList 
           countries={this.props.visibleCountries} 

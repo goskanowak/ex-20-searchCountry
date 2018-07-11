@@ -15,7 +15,7 @@ export default (
       <IndexRoute 
         component={CountryFlagContainer}/>
       <Route 
-        path='contry/:id' 
+        path='country/:id' 
         component={CountryDetailsContainer}/>
     </Route>
     <Route 
